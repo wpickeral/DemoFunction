@@ -15,8 +15,9 @@ namespace DemoFunction
         }
 
         [Function("Demo")]
-        public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req)
+        public IActionResult Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequest req)
         {
+            // AuthorizationLevel.Function does not work locally
             return new OkObjectResult("Welcome to Azure Functions!");
         }
     }
